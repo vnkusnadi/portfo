@@ -35,7 +35,7 @@ def submit_data():
         except:
             return "not saved in database, please try again"
     else:
-        return 'something went wrong'
+        return 'Sorry, something went wrong'
 
 
 

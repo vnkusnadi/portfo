@@ -8,6 +8,7 @@
   <meta content="description" name="description">
   <meta name="google" content="notranslate" />
   <meta content="Mashup templates have been developped by Orson.io team" name="author">
+
   <!-- Disable tap highlight on IE -->
   <meta name="msapplication-tap-highlight" content="no">
 
@@ -15,13 +16,12 @@
   <link href="static/assets/favicon.ico" rel="icon">
 
   <title>A-hai's Web Portofolio</title>
-  <link href="static/main.3f6952e4.css" rel="stylesheet">
 
+  <link href="static/main.3f6952e4.css" rel="stylesheet">
   <!-- Codeblock CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/codemirror@5.61.0/lib/codemirror.min.css">
   <script src="https://cdn.jsdelivr.net/npm/codemirror@5.61.0/addon/runmode/runmode-standalone.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/codemirror@5.61.0/mode/python/python.min.js"></script>
-
 
 </head>
 
@@ -51,8 +51,8 @@
 
 
           <ul class="nav navbar-nav navbar-right navbar-small visible-md visible-lg">
-            <li><a href="./work.html" title="" class="active">001</a></li>
-            <li><a href="./work2.html" title="">002</a></li>
+            <li><a href="./work.html" title="">001</a></li>
+            <li><a href="./work2.html" title="" class="active">002</a></li>
             <li><a href="./work3.html" title="">003</a></li>
             <li><a href="./work4.html" title="">004</a></li>
             <li><a href="./work5.html" title="">005</a></li>
@@ -70,47 +70,30 @@
         <img src="static/assets/images/work001-01.jpg" class="img-responsive" alt="">
         <div class="card-container">
           <div class="text-center">
-            <h1 class="h2">001 : JPEG to PNG Converter </h1>
+            <h1 class="h2">002 : PDF merger</h1>
           </div>
-          <p>In today's digital age, images play a great role in various application, including web development, graphic design, scientific research, and data analysis. Among the popular image formats, JPEG and PNG stand out. The motivation behind this project stems from PNG's unique strengths. PNG excels with its lossless compression, preserving image quality and intricate details. This feature proves invaluable, especially for images requiring a transparent background, like icons, logos, or web development assets. Since not all images come in PNG format, I initiated this project to bridge that gap. Below is the code to convert JPEG files ton PNG files </p>
-
+          <p>A PDF merger, commonly referred to as a PDF combiner, is a software utility designed to merge multiple PDF (Portable Document Format) files into a single, cohesive PDF document. The inception of this project was driven by the limitations frequently encountered when using online PDF merging services. These limitations often include the requirement for payment to access full features or frustrating restrictions, such as the inability to merge files exceeding 500 KB in size. This project serves as a complimentary and efficient solution, offering a free alternative. Below, is the Python code for the PDF merger solutions. </p>
 
           <pre><code id="python_code" class="language-css">
-            # before you execute this code, please install PIP library module in your cmd
+            # before you execute this code, please install PyPDF2 library module in your cmd
             # execute this code on your chosen IDE and prepare a cmd
-            # run: python {filename}.py {folder contains JPEG Images} {folder contains PNG Images}
+            # run: python {filename}.py {merged PDF name} {all PDF files}
 
             import sys
-            import os
-            from PIL import Image
+            import PyPDF2
 
-            # grab first and second argument
-            yi = sys.argv[1]
-            er = sys.argv[2]
 
-            first = f'./{yi}'
-            second= f'./{er}'
+            name = sys.argv[1]
+            inputs = sys.argv[2:]
 
-            # check if 'second' folder exists, if not create a folder to contain the PNG files
-            if os.path.isdir(second):
-                pass
-            else:
-                os.mkdir(second)
+            def pdf_combiner(pdf_list):
+                merger = PyPDF2.PdfFileMerger()
+                for file in pdf_list:
+                    merger.append(file)
+                merger.write(name)
+                print('PDF merged')
 
-            # loop through pokedex
-            for x in os.listdir(first):
-                file = f'{first}/{x}'
-                clean_name = os.path.splitext(x)[0]
-                file2 = f'{second}/{clean_name}'
-            # check if
-                try:
-                    pngfile = Image.open(file)
-                except Exception as e:
-                    print(f"Error,{e}")
-            # convert images to png amd save to new folder
-                pngfile.save(f'{file2}.png','png')
-
-            print(f'image is saved in {second} folder')
+            pdf_combiner(inputs)
 
           </code></pre>
           <script type="text/javascript">
@@ -133,7 +116,7 @@
       </div>
 
 
-      <!-- addition for images -->
+
       <div class="col-md-8 col-md-offset-2 section-container-spacer">
         <div class="row">
           <div class="col-xs-12 col-md-6">

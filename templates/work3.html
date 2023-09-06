@@ -8,6 +8,7 @@
   <meta content="description" name="description">
   <meta name="google" content="notranslate" />
   <meta content="Mashup templates have been developped by Orson.io team" name="author">
+
   <!-- Disable tap highlight on IE -->
   <meta name="msapplication-tap-highlight" content="no">
 
@@ -16,13 +17,10 @@
 
   <title>A-hai's Web Portofolio</title>
   <link href="static/main.3f6952e4.css" rel="stylesheet">
-
   <!-- Codeblock CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/codemirror@5.61.0/lib/codemirror.min.css">
   <script src="https://cdn.jsdelivr.net/npm/codemirror@5.61.0/addon/runmode/runmode-standalone.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/codemirror@5.61.0/mode/python/python.min.js"></script>
-
-
 </head>
 
 <body class="">
@@ -51,9 +49,9 @@
 
 
           <ul class="nav navbar-nav navbar-right navbar-small visible-md visible-lg">
-            <li><a href="./work.html" title="" class="active">001</a></li>
+            <li><a href="./work.html" title="">001</a></li>
             <li><a href="./work2.html" title="">002</a></li>
-            <li><a href="./work3.html" title="">003</a></li>
+            <li><a href="./work3.html" title="" class="active">003</a></li>
             <li><a href="./work4.html" title="">004</a></li>
             <li><a href="./work5.html" title="">005</a></li>
           </ul>
@@ -70,47 +68,75 @@
         <img src="static/assets/images/work001-01.jpg" class="img-responsive" alt="">
         <div class="card-container">
           <div class="text-center">
-            <h1 class="h2">001 : JPEG to PNG Converter </h1>
+            <h1 class="h2">003 : Password Checker</h1>
           </div>
-          <p>In today's digital age, images play a great role in various application, including web development, graphic design, scientific research, and data analysis. Among the popular image formats, JPEG and PNG stand out. The motivation behind this project stems from PNG's unique strengths. PNG excels with its lossless compression, preserving image quality and intricate details. This feature proves invaluable, especially for images requiring a transparent background, like icons, logos, or web development assets. Since not all images come in PNG format, I initiated this project to bridge that gap. Below is the code to convert JPEG files ton PNG files </p>
+          <p>My motivation for creating a password checker project stems from a concern for online security.
+            While there are trusted websites that offer password APIs,
+            such as <a href = "https://haveibeenpwned.com/Passwords">https://haveibeenpwned.com/Passwords</a>,
+             it is essential to acknowledge the risks of relying solely on external platforms for a sensitive task.
+             Even though certain websites may appear reputable, entrusting them with our passwords could expose our
+             sensitive information and potentially lead to a data breach. Therefore, I have created this project to
+             prioritize our own safety. Below is a password checker constructed using Python. </p>
 
 
           <pre><code id="python_code" class="language-css">
-            # before you execute this code, please install PIP library module in your cmd
+            # before you execute this code, please install requests and hashlib library module in your cmd
             # execute this code on your chosen IDE and prepare a cmd
-            # run: python {filename}.py {folder contains JPEG Images} {folder contains PNG Images}
+            # run: python {filename}.py {passwords you want to check}
 
+            import requests
+            import hashlib
             import sys
-            import os
-            from PIL import Image
 
-            # grab first and second argument
-            yi = sys.argv[1]
-            er = sys.argv[2]
+            # link for hash generator : https://passwordsgenerator.net/sha1-hash-generator/
 
-            first = f'./{yi}'
-            second= f'./{er}'
 
-            # check if 'second' folder exists, if not create a folder to contain the PNG files
-            if os.path.isdir(second):
-                pass
-            else:
-                os.mkdir(second)
 
-            # loop through pokedex
-            for x in os.listdir(first):
-                file = f'{first}/{x}'
-                clean_name = os.path.splitext(x)[0]
-                file2 = f'{second}/{clean_name}'
-            # check if
-                try:
-                    pngfile = Image.open(file)
-                except Exception as e:
-                    print(f"Error,{e}")
-            # convert images to png amd save to new folder
-                pngfile.save(f'{file2}.png','png')
+            def request_api_data(query_char):
+                # query_char =  first 5 digits of hash sha1 code of your password
+                url = 'https://api.pwnedpasswords.com/range/' + query_char
+                res = requests.get(url)
 
-            print(f'image is saved in {second} folder')
+                if res.status_code != 200:
+                    raise RuntimeError(
+                        f'Error fetching: {res.status_code}, check the API and try again :)'
+                else:
+                    return res
+                    # return the responese(200) where inside it gives list of password listed in data breach
+
+            # hashes =  the list of
+            def get_password_leaks_count(hashes, hash_to_check):
+                li1 = []
+                for line in hashes.text.splitlines():
+                    li1.append(line.split(':'))
+                for h, c in li1:
+                    if h == hash_to_check:
+                        return c
+
+
+            def pwned_api_check(password):
+                # convert password into sha1 hash
+                sha1password = (hashlib.sha1(password.encode()).hexdigest()).upper()
+                first5_letter, tail = sha1password[0:5], sha1password[5:]
+
+                # response = the response of the web which is 200 (inside gives list of password in data breach)
+                response = request_api_data(first5_letter)
+
+                return get_password_leaks_count(response, tail)
+
+
+            def main(args):
+                for password in args:
+                    count = pwned_api_check(password)
+                    if count:
+                        print(f'{password} was found {count} times....  you should change it')
+                    else:
+                        print(f'{password} was NOT found. Carry on!')
+                return 'done!'
+
+            if __name__ == '__main__':
+                print(main(sys.argv[1:]))
+
 
           </code></pre>
           <script type="text/javascript">
@@ -133,7 +159,7 @@
       </div>
 
 
-      <!-- addition for images -->
+
       <div class="col-md-8 col-md-offset-2 section-container-spacer">
         <div class="row">
           <div class="col-xs-12 col-md-6">

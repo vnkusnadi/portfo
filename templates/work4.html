@@ -8,6 +8,7 @@
   <meta content="description" name="description">
   <meta name="google" content="notranslate" />
   <meta content="Mashup templates have been developped by Orson.io team" name="author">
+
   <!-- Disable tap highlight on IE -->
   <meta name="msapplication-tap-highlight" content="no">
 
@@ -16,12 +17,10 @@
 
   <title>A-hai's Web Portofolio</title>
   <link href="static/main.3f6952e4.css" rel="stylesheet">
-
   <!-- Codeblock CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/codemirror@5.61.0/lib/codemirror.min.css">
   <script src="https://cdn.jsdelivr.net/npm/codemirror@5.61.0/addon/runmode/runmode-standalone.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/codemirror@5.61.0/mode/python/python.min.js"></script>
-
 
 </head>
 
@@ -51,10 +50,10 @@
 
 
           <ul class="nav navbar-nav navbar-right navbar-small visible-md visible-lg">
-            <li><a href="./work.html" title="" class="active">001</a></li>
+            <li><a href="./work.html" title="" >001</a></li>
             <li><a href="./work2.html" title="">002</a></li>
             <li><a href="./work3.html" title="">003</a></li>
-            <li><a href="./work4.html" title="">004</a></li>
+            <li><a href="./work4.html" title="" class="active">004</a></li>
             <li><a href="./work5.html" title="">005</a></li>
           </ul>
 
@@ -70,13 +69,16 @@
         <img src="static/assets/images/work001-01.jpg" class="img-responsive" alt="">
         <div class="card-container">
           <div class="text-center">
-            <h1 class="h2">001 : JPEG to PNG Converter </h1>
+            <h1 class="h2">004 : Web Scraping <a href="https://news.ycombinator.com/">HackerNews </a> website </h1>
           </div>
-          <p>In today's digital age, images play a great role in various application, including web development, graphic design, scientific research, and data analysis. Among the popular image formats, JPEG and PNG stand out. The motivation behind this project stems from PNG's unique strengths. PNG excels with its lossless compression, preserving image quality and intricate details. This feature proves invaluable, especially for images requiring a transparent background, like icons, logos, or web development assets. Since not all images come in PNG format, I initiated this project to bridge that gap. Below is the code to convert JPEG files ton PNG files </p>
+          <p>I built a web scraping project for
+            <a href="https://news.ycombinator.com/">HackerNews </a>
+              primarily to learn web scraping using Python. Beyond that, I aimed to provide a specialized news
+               feed featuring articles with 100 points or more, offering users a curated selection of high-quality
+                content for informed discussions and insights. Below, is the Python code of scraping <a href="https://news.ycombinator.com/">HackerNews </a>. </p>
 
 
           <pre><code id="python_code" class="language-css">
-            # before you execute this code, please install PIP library module in your cmd
             # execute this code on your chosen IDE and prepare a cmd
             # run: python {filename}.py {folder contains JPEG Images} {folder contains PNG Images}
 
@@ -133,7 +135,7 @@
       </div>
 
 
-      <!-- addition for images -->
+
       <div class="col-md-8 col-md-offset-2 section-container-spacer">
         <div class="row">
           <div class="col-xs-12 col-md-6">
