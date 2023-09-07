@@ -43,7 +43,7 @@
       <div class="collapse navbar-collapse" id="navbar-collapse">
         <ul class="nav navbar-nav ">
           <li><a href="./index.html" title="">01 : Home</a></li>
-          <li><a href="./works.html" title="">02 : Projects</a></li>
+          <li><a href="./works.html" title="">02 : Projects and Experience</a></li>
           <li><a href="./about.html" title="">03 : About me</a></li>
           <li><a href="./contact.html" title="">04 : Contact</a></li>
         </ul>
@@ -69,46 +69,45 @@
         <img src="static/assets/images/work001-01.jpg" class="img-responsive" alt="">
         <div class="card-container">
           <div class="text-center">
-            <h1 class="h2">001 : Fringilla sit amet</h1>
+            <h1 class="h2">005 : HackerRank Python</h1>
           </div>
-          <p>In today's digital age, images play a great role in various application, including web development, graphic design, scientific research, and data analysis. Among the popular image formats, JPEG and PNG stand out. The motivation behind this project stems from PNG's unique strengths. PNG excels with its lossless compression, preserving image quality and intricate details. This feature proves invaluable, especially for images requiring a transparent background, like icons, logos, or web development assets. Since not all images come in PNG format, I initiated this project to bridge that gap. Below is the code to convert JPEG files ton PNG files </p>
+          <p> HackerRank is a renowned online platform that focuses on developing individuals coding and programming skills. It offers a wide variety of coding challenges, competitions, and exercises across various domains such as algorithms, data structures, and more. I chose to practice my coding skills on HackerRank because its extensive library of problems enables me to continuously challenge and improve my programming abilities. In addition, I choose HackerRank because it provides a competitive environment through coding contests, allowing me to measure my skills against a global community of programmers. Here's the link to my <a href="https://www.hackerrank.com/vickoguo">HackerRank account</a>. Below are one of my code to solve HackerRank problems.
+          </p>
 
 
           <pre><code id="python_code" class="language-css">
-            # execute this code on your chosen IDE and prepare a cmd
-            # run: python {filename}.py {folder contains JPEG Images} {folder contains PNG Images}
 
-            import sys
-            import os
-            from PIL import Image
+            # problem set : The Captain's Room ("https://www.hackerrank.com/challenges/py-the-captains-room/problem")
+            # Solution    :
+            a = int(input())
+            di1 = {}
+            for x in input().split():
+                di1[x]=di1.get(x, 0)+1
+            for i,j in di1.items():
+                if j == 1:
+                    print(i)
 
-            # grab first and second argument
-            yi = sys.argv[1]
-            er = sys.argv[2]
 
-            first = f'./{yi}'
-            second= f'./{er}'
+            # probem set : Find Angle MBC (https://www.hackerrank.com/challenges/find-angle/problem)
+            # solution   :
+            import math
 
-            # check if 'second' folder exists, if not create a folder to contain the PNG files
-            if os.path.isdir(second):
-                pass
-            else:
-                os.mkdir(second)
+            n = int(input())
+            m = int(input())
 
-            # loop through pokedex
-            for x in os.listdir(first):
-                file = f'{first}/{x}'
-                clean_name = os.path.splitext(x)[0]
-                file2 = f'{second}/{clean_name}'
-            # check if
-                try:
-                    pngfile = Image.open(file)
-                except Exception as e:
-                    print(f"Error,{e}")
-            # convert images to png amd save to new folder
-                pngfile.save(f'{file2}.png','png')
+            # find arctan of n/m
+            x = math.atan(n/m)
 
-            print(f'image is saved in {second} folder')
+            # convert radian to degree
+            x = round((x*180)/math.pi)
+
+            # print the degree
+            print(f'{x}{chr(176)}')
+
+
+            # problem set :
+            # solution    :
+
 
           </code></pre>
           <script type="text/javascript">
