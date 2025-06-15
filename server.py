@@ -45,7 +45,7 @@ def submit_data():
 
 
 
-# use above instead of using the bellow code, it is too much :)
+# use above instead of using the below code
 
 # @app.route("/")
 # def index():
