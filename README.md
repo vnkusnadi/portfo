@@ -11,7 +11,7 @@
 | Frontend Design  | HTML, CSS          | Built responsive and styled pages using a professional-looking template |
 | Form Handling    | Flask + CSV Module | Stores user input into a CSV file on the backend                        |
 | Page Routing     | Flask Routing      | Dynamic page rendering using route variables (`/<string:page_name>`)    |
-| Deployment Ready | Yes                | Simple to deploy on platforms like PythonAnywhere                       |
+| Deployment Ready | Yes                | Deployed on PythonAnywhere: <a href="https://vickoguo.pythonanywhere.com/">https://vickoguo.pythonanywhere.com/        |
 
 <br><br>
 
@@ -26,10 +26,10 @@
 - How to build a structured website layout.
 - Navigational bars, header sections, and responsive image integration.
 - How to customize pre-built templates.
-- Linking pages using <a href="page.html">.
+- Linking pages using \<a href="page.html">.
 
 ###✅ Clean Code Practices
-- Replaced hardcoded routes with one dynamic route (/<string:page_name>) to keep code DRY.
+- Replaced hardcoded routes with one dynamic route (/\<string:page_name>) to keep code DRY.
 - Separated logic into functions (write_to_csv) for reusability.
 
 
