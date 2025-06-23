@@ -1,5 +1,5 @@
 # Web Portfolio Project
-#### Welcome to my personal Web Portfolio Pet Project, a full-stack web app developed using Flask (Python), along with HTML5 and CSS3! This project showcases my learning journey in building responsive, interactive, and server-connected websites.
+Welcome to my personal Web Portfolio Pet Project, a full-stack web app developed using Flask (Python), along with HTML5 and CSS3! This project showcases my learning journey in building responsive, interactive, and server-connected websites. The application has been deployed on PythonAnywhere and can be accessed with<a href="https://vickoguo.pythonanywhere.com/"> https://vickoguo.pythonanywhere.com/ </a> 
 
 <br><br>
 
