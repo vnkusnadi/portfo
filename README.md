@@ -33,26 +33,8 @@
 - Separated logic into functions (write_to_csv) for reusability.
 
 
-## 📌 Project Directory
-
-my-portfolio/
-│
-├── static/              # CSS, images, JS
-├── templates/           # HTML files
-│   ├── index.html
-│   ├── about.html
-│   ├── contact.html
-│   └── thankyou.html
-│
-├── database.csv         # Stores form submissions
-├── app.py               # Main Flask backend logic
-└── README.md            # You're reading it!
-
-
 ## 🎯 To-Do & Future Plans
  - Integrate email notifications using Flask-Mail
  - Add JavaScript interactivity (form validation, animations)
- - Store submissions in SQLite or PostgreSQL
+ - Store submissions in PostgreSQL
  - Make the site mobile-optimized using media queries
- - Deploy to live hosting platform
-
